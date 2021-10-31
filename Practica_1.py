@@ -36,7 +36,6 @@ def miillerTest(d, ni):
 
 
 def isPrime(ni, ki):
-    # Corner cases
     if ni <= 1 or ni == 4:
         return False
     if ni <= 3:

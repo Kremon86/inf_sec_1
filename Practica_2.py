@@ -9,6 +9,8 @@ def main():
     hashes = {}
     for num in range(100000):
         hash = hash_func(num)
+        print()
+        print(num, hash)
         if hash in hashes.values():
             return 'Error'
 
