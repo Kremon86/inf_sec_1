@@ -21,10 +21,10 @@ def get_caesar_cipher(message):
 
     result = []
     letters = [' ', 'О', 'А', 'Е', 'И', 'Е', 'Н', 'Л',
-                           'Р', 'С', 'В', 'К', 'М', 'Д', 'У', 'П',
-                           'Б', 'Г', 'T', 'Ы', 'Ч', 'Ь', 'З', 'Я', 'Й',
-                           'Х', 'Ж', 'Ш', 'Ю', 'Ф', 'Э', 'Щ',
-                           'Ё', 'Ц', 'Ъ', '\n']
+               'Р', 'С', 'В', 'К', 'М', 'Д', 'У', 'П',
+               'Б', 'Г', 'T', 'Ы', 'Ч', 'Ь', 'З', 'Я', 'Й',
+               'Х', 'Ж', 'Ш', 'Ю', 'Ф', 'Э', 'Щ',
+               'Ё', 'Ц', 'Ъ', '\n']
 
     dictionary = dict(zip(f, letters))
     for i in message:
@@ -45,6 +45,7 @@ def get_bigram(message, text):
         message = message.replace(i[0], y[0])
 
     return message
+
 
 def get_text(file_name):
     with open(file_name, encoding='utf-8') as file:
