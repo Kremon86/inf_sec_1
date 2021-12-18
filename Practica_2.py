@@ -8,13 +8,13 @@ def hash_func(num):
 def main():
     hashes = {}
     for num in range(100000):
-        hash = hash_func(num)
+        hash_num = hash_func(num)
         print()
-        print(num, hash)
-        if hash in hashes.values():
+        print(num, hash_num)
+        if hash_num in hashes.values():
             return 'Error'
 
-        hashes[num] = hash
+        hashes[num] = hash_num
 
     return hashes
 

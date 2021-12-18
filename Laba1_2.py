@@ -38,7 +38,7 @@ def get_caesar_cipher(message):
 def get_bigram(message, text):
     t = re.findall("\w{2}", text)
     bigr = Counter(islice(t, 1, None))
-
+    print(bigr)
     t = re.findall("\w{2}", message)
     s_bigr = Counter(islice(t, 1, None))
     for i, y in zip(s_bigr.most_common(), bigr.most_common()):

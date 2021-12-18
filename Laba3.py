@@ -1,5 +1,7 @@
+import math
 import random
 from Practica_1 import isPrime
+from math import gcd
 
 
 def get_rand_prime(num):
@@ -16,7 +18,17 @@ def main():
     Bob = []
     Alisa = []
     Eva = []
-    g = random.randint(100, 10000)
+    g = get_rand_prime(10000)
+    p = get_rand_prime(10000)
+    N = p * g
+    f_e = (p-1) * (g - 1)
+
+    while True:
+        i = random.randint(2, f_e - 1)
+        if gcd(i, f_e) == 1:
+            e = i
+            break
+
     Bob.append(g)
     Alisa.append(g)
     Eva.append(g)
@@ -24,7 +36,6 @@ def main():
     print("Bob: ", Bob)
     print("Eva: ", Eva)
 
-    p = random.randint(100, 10000)
     Bob.append(p)
     Alisa.append(p)
     Eva.append(p)
@@ -62,6 +73,7 @@ def main():
 
     print('Шифрованное сообщение: ', Alisa[-1])
     print('Eva не знает простых чисел Alisa и Bob, чтобы расшифровать сообщение')
+
 
 if __name__ == '__main__':
     main()

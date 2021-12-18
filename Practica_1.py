@@ -55,6 +55,6 @@ if __name__ == '__main__':
     k = 4
     n = int(input('Введите число: '))
     if isPrime(n, k):
-        print(n,' - Простое число')
+        print(n, ' - Простое число')
     else:
         print(n, ' - Составное число')
