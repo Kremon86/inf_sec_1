@@ -1,4 +1,3 @@
-import math
 import random
 from Practica_1 import isPrime
 from math import gcd
@@ -20,7 +19,7 @@ def main():
     Eva = []
     g = get_rand_prime(10000)
     p = get_rand_prime(10000)
-    N = p * g
+    n = p * g
     f_e = (p-1) * (g - 1)
 
     while True:
@@ -29,50 +28,31 @@ def main():
             e = i
             break
 
-    Bob.append(g)
-    Alisa.append(g)
-    Eva.append(g)
-    print("Alisa : ", Alisa)
-    print("Bob: ", Bob)
-    print("Eva: ", Eva)
+    while (f_e * i + 1) % e != 0:
+        i += 1
+    d = (f_e * i + 1) // e
+    print('Открытый ключ: ', e, n)
+    print('Закрытый ключ: ', d, n)
 
-    Bob.append(p)
-    Alisa.append(p)
-    Eva.append(p)
+    m = 11111
+    Alisa.append(m)
+    c = m**e % n
+
+    Bob.append(c)
+    Alisa.append(c)
+    Eva.append(c)
     print("Alisa: ", Alisa)
     print("Bob: ", Bob)
     print("Eva: ", Eva)
 
-    Alisa_gen = get_rand_prime(10000)
-    Alisa.append(Alisa_gen)
-    print("Alisa: ", Alisa)
-    Alisa_gen = g ** Alisa_gen % p
-    Bob.append(Alisa_gen)
-    Alisa.append(Alisa_gen)
-    Eva.append(Alisa_gen)
+    m = c**d % n
+
+    Bob.append(m)
     print("Alisa: ", Alisa)
     print("Bob: ", Bob)
     print("Eva: ", Eva)
 
-    Bob_gen = get_rand_prime(10000)
-    Bob.append(Bob_gen)
-    print("Bob: ", Bob)
-    Bob_gen = g ** Bob_gen % p
-    Bob.append(Bob_gen)
-    Alisa.append(Bob_gen)
-    Eva.append(Bob_gen)
-    print("Alisa: ", Alisa)
-    print("Bob: ", Bob)
-    print("Eva: ", Eva)
-
-    Alisa.append(Alisa[-1] ** Alisa[-3] % p)
-    Bob.append(Bob[-3] ** Bob[-2] % p)
-    print("Alisa: ", Alisa)
-    print("Bob: ", Bob)
-    print("Eva: ", Eva)
-
-    print('Шифрованное сообщение: ', Alisa[-1])
-    print('Eva не знает простых чисел Alisa и Bob, чтобы расшифровать сообщение')
+    print('Шифрованное сообщение: ', Bob[-1])
 
 
 if __name__ == '__main__':

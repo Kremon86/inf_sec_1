@@ -1,26 +1,33 @@
+from random import randint
+
+
 def main():
-    g = 3
-    p = 17
-    Bob = []
-    Alisa = []
-    Eva = []
+    g = randint(10, 10000)
+    p = randint(10, 10000)
 
-    Bob.append(g ** 15 % p)
-    Alisa.append(g ** 15 % p)
-    Eva.append(g ** 15 % p)
+    a = randint(10, 10000)
+    b = randint(10, 10000)
 
-    Bob.append(g ** 13 % p)
-    Alisa.append(g ** 13 % p)
-    Eva.append(g ** 13 % p)
+    Bob = [g, p]
+    Alisa = [g, p]
+    Eva = [g, p]
 
-    Bob.append(Bob[1] ** 15 % p)
-    Alisa.append(Alisa[0] ** 13 % p)
+    Bob.append(g ** a % p)
+    Alisa.append(g ** a % p)
+    Eva.append(g ** a % p)
+
+    Bob.append(g ** b % p)
+    Alisa.append(g ** b % p)
+    Eva.append(g ** b % p)
+
+    Bob.append(Bob[-2] ** b % p)
+    Alisa.append(Alisa[-1] ** a % p)
 
     print('Bob: ', Bob)
     print('Alisa: ', Alisa)
     print('Eva: ', Eva)
 
-    return Alisa[2]
+    return Alisa[-1]
 
 
 if __name__ == '__main__':
